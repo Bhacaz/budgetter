@@ -1,0 +1,10 @@
+<%= turbo_frame_tag(entry) do %>
+    <%= form_with(model: entry, data: { format: :turbo_stream, controller: 'form', action: 'turbo:submit-end->form#resetForm' } ) do |form| %>
+    <div class="columns">
+      <div class="column"><%= form.text_field :amount, class: 'input is-small' %></div>
+      <div class="column"><%= form.date_select :date %></div>
+      <div class="column"><%= form.text_field :description, class: 'input is-small' %></div>
+      <div class="column"><%= form.button class: 'button is-primary is-small' %></div>
+    </div>
+    <% end %>
+<% end %>

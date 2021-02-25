@@ -1,0 +1,12 @@
+<%= turbo_frame_tag(entry) do %>
+  <div class="columns">
+    <div class="column"><%= entry.amount %></div>
+    <div class="column"><%= entry.date %></div>
+    <div class="column"><%= entry.description %></div>
+    <div class="column">
+      <%= link_to 'Show', entry %>
+      <%= link_to 'Edit', edit_entry_path(entry) %>
+      <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<% end %>
