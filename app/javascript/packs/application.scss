@@ -1,0 +1,15 @@
+
+@import '~bulma';
+@import '~bulma-extensions';
+
+.is-full {
+  width: 100%;
+}
+
+.datetimepicker-dummy-input {
+  max-width: 100% !important;
+}
+
+.entry-row {
+  height: 3em;
+}

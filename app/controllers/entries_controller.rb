@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.turbo_stream { p @entry; render turbo_stream: turbo_stream.prepend(:entries, @entry) }
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend(:entries, @entry) }
         format.html { redirect_to @entry, notice: "Entry was successfully created." }
         format.json { render :show, status: :created, location: @entry }
       else
@@ -40,6 +40,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@entry) }
         format.html { redirect_to @entry, notice: "Entry was successfully updated." }
         format.json { render :show, status: :ok, location: @entry }
       else

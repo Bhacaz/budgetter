@@ -1,12 +1,15 @@
 <%= turbo_frame_tag(entry) do %>
-  <div class="columns">
-    <div class="column"><%= entry.amount %></div>
+  <div class="columns entry-row">
+    <div class="column"><%= entry.amount.to_f.round(2).to_s + ' $' %></div>
     <div class="column"><%= entry.date %></div>
     <div class="column"><%= entry.description %></div>
     <div class="column">
-      <%= link_to 'Show', entry %>
-      <%= link_to 'Edit', edit_entry_path(entry) %>
-      <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to edit_entry_path(entry), class: 'button is-white' do %>
+        <span class="icon is-small has-text-info"><i class="fas fa-pen"></i></span>
+      <% end %>
+      <%= link_to entry, method: :delete, class: 'button is-white' do %>
+        <span class="icon is-small has-text-danger"><i class="fas fa-trash-alt"></i></span>
+    <% end %>
     </div>
   </div>
 <% end %>

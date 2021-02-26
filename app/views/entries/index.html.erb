@@ -1,18 +1,14 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Entries</h1>
-
 <%= turbo_stream_from 'entries' %>
   <div class="columns">
-    <div class="column">Amount</div>
-    <div class="column">Date</div>
-    <div class="column">Description</div>
+    <div class="column"><h6 class="title is-6">Amount</h6></div>
+    <div class="column"><h6 class="title is-6">Date</h6></div>
+    <div class="column"><h6 class="title is-6">Description</h6></div>
     <div class="column"></div>
   </div>
   <%= render 'form', entry: @new_entry %>
   <%= turbo_frame_tag 'entries' do %>
     <%= render @entries %>
   <% end %>
-
-<%= link_to 'New Entry', new_entry_path %>
