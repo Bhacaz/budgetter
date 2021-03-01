@@ -1,14 +1,16 @@
 
 <p id="notice"><%= notice %></p>
 
+<p>Solde: <span data-controller="entries" data-entries-target="soldSum"><%= "#{@entries.sum(&:amount)}" %></span></p>
+
 <%= turbo_stream_from 'entries' %>
-  <div class="columns">
-    <div class="column"><h6 class="title is-6">Amount</h6></div>
-    <div class="column"><h6 class="title is-6">Date</h6></div>
-    <div class="column"><h6 class="title is-6">Description</h6></div>
-    <div class="column"></div>
-  </div>
-  <%= render 'form', entry: @new_entry %>
-  <%= turbo_frame_tag 'entries' do %>
-    <%= render @entries %>
-  <% end %>
+<div class="columns">
+  <div class="column"><h6 class="title is-6">Amount</h6></div>
+  <div class="column"><h6 class="title is-6">Date</h6></div>
+  <div class="column"><h6 class="title is-6">Description</h6></div>
+  <div class="column"></div>
+</div>
+<%= render 'form', entry: @new_entry %>
+<%= turbo_frame_tag 'entries' do %>
+  <%= render @entries %>
+<% end %>

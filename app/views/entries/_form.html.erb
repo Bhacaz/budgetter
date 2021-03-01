@@ -2,7 +2,6 @@
     <%= form_with(model: entry, data: { format: :turbo_stream, controller: 'entries', action: 'turbo:submit-end->entries#resetForm' } ) do |form| %>
     <div class="columns">
       <div class="column"><%= form.text_field :amount, required: true, class: 'input is-small' %></div>
-<!--      <div class="column"><input type="date" name="entry[date]" data-show-header="false" data-show-clear-button="false"></div>-->
       <div class="column"><%= form.date_field :date, required: true, data: { show_header: false, show_clear_button: false, date_format: 'YYYY-MM-DD' } %></div>
       <div class="column"><%= form.text_field :description, class: 'input is-small' %></div>
       <div class="column">
